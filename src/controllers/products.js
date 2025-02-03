@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   //#swagger.tags=['Products]
   const productId = new ObjectId(req.params.id)
-  const result = await mongodb.getDatabase().db().collection('products').find({ _id: contactId })
+  const result = await mongodb.getDatabase().db().collection('products').find({ _id: productId })
 
   const products = await result.toArray()
 
@@ -46,7 +46,7 @@ const createProduct = async (req, res) => {
     return res.status(204).json({ message: 'User created' })
   }
 
-  return res.status(500).json(response.error || 'Some error occourred while create the contant.')
+  return res.status(500).json(response.error || 'Some error occourred while create the product.')
 }
 
 const updateProduct = async (req, res) => {
@@ -77,7 +77,7 @@ const updateProduct = async (req, res) => {
     return
   }
 
-  res.status(500).json(response.error || 'Some error occourred while update the contant.')
+  res.status(500).json(response.error || 'Some error occourred while update the product.')
 }
 
 
@@ -85,7 +85,7 @@ const deleteProduct = async (req, res) => {
   //#swagger.tags=['Products]
   const productId = new ObjectId(req.params.id)
 
-  const response = await mongodb.getDatabase().db().collection('products').deleteOne({ _id: contactId })
+  const response = await mongodb.getDatabase().db().collection('products').deleteOne({ _id: productId })
 
   res.setHeader('Content-Type', 'application/json')
 
