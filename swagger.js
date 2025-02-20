@@ -5,7 +5,7 @@ const doc = {
     title: 'Products Api',
     description: 'Products Api for my Byu Class'
   },
-  host: 'https://cse341-project2-1.onrender.com/api/v1/api/v1',
+  host: 'cse341-project2-1.onrender.com/api/v1/api/v1',
   schemes: ['https']
 }
 
