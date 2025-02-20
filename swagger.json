@@ -5,7 +5,7 @@
     "description": "Products Api for my Byu Class",
     "version": "1.0.0"
   },
-  "host": "cse341-project2-1.onrender.com/api/v1/api/v1",
+  "host": "cse341-project2-1.onrender.com/api/v1",
   "basePath": "/",
   "schemes": [
     "https"
