@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const usersRoute = require('./users')
 const productsRoute = require('./products')
+const ordersRoute = require('./orders')
+const servicesRoute = require('./services')
 const swaggerRoute = require('./swagger')
 const passport = require('passport')
 
@@ -26,6 +28,8 @@ router.get('/', (req, res) => {
 
 router.use('/users', usersRoute)
 router.use('/products', productsRoute)
+router.use('/orders', ordersRoute)
+router.use('/services', servicesRoute)
 router.use('/', swaggerRoute)
 
 module.exports = router

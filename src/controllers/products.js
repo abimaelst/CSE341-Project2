@@ -2,7 +2,7 @@ const mongodb = require('../data/database')
 const ObjectId = require('mongodb').ObjectId
 
 const getAll = async (req, res) => {
-  //#swagger.tags=['Products]
+  //#swagger.tags=['Products']
   const result = await mongodb.getDatabase().db().collection('products').find()
   const users = await result.toArray()
 
@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
 }
 
 const getSingle = async (req, res) => {
-  //#swagger.tags=['Products]
+  //#swagger.tags=['Products']
   const productId = new ObjectId(req.params.id)
   const result = await mongodb.getDatabase().db().collection('products').find({ _id: productId })
 
@@ -22,7 +22,7 @@ const getSingle = async (req, res) => {
 }
 
 const createProduct = async (req, res) => {
-  //#swagger.tags=['Products]
+  //#swagger.tags=['Products']
   const {
     name,
     type,
@@ -50,7 +50,7 @@ const createProduct = async (req, res) => {
 }
 
 const updateProduct = async (req, res) => {
-  //#swagger.tags=['Products]
+  //#swagger.tags=['Products']
   const productId = new ObjectId(req.params.id)
 
   const {
@@ -82,7 +82,7 @@ const updateProduct = async (req, res) => {
 
 
 const deleteProduct = async (req, res) => {
-  //#swagger.tags=['Products]
+  //#swagger.tags=['Products']
   const productId = new ObjectId(req.params.id)
 
   const response = await mongodb.getDatabase().db().collection('products').deleteOne({ _id: productId })
