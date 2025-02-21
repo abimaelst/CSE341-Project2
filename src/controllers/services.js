@@ -5,7 +5,7 @@ const mongodb = require('../data/database')
 const getAll = async (req, res) => {
   //#swagger.tags=['Services']
   try {
-    const db = mongodb.getDatabase().db('your_database_name');
+    const db = mongodb.getDatabase().db();
     const result = await db.collection('services').find().toArray();
     res.status(200).json({ services: result });
   } catch (err) {
@@ -20,7 +20,7 @@ const getSingle = async (req, res) => {
       return res.status(400).json({ message: 'Invalid service ID format' });
     }
 
-    const db = mongodb.getDatabase().db('your_database_name');
+    const db = mongodb.getDatabase().db();
     const serviceId = new ObjectId(req.params.id);
     const result = await db.collection('services').findOne({ _id: serviceId });
 
@@ -48,7 +48,7 @@ const createService = async (req, res) => {
       created_at: new Date()
     };
 
-    const db = mongodb.getDatabase().db('your_database_name');
+    const db = mongodb.getDatabase().db();
     const result = await db.collection('services').insertOne(service);
 
     if (!result.acknowledged) {
