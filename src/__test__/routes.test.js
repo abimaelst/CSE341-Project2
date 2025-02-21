@@ -1,11 +1,13 @@
 const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv')
+dotenv.config()
 
 describe('Get Routes Tests', () => {
   let connection;
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect('mongodb+srv://abimael:qHV9kxSzyMGhLmeZ@clusterbyu.pz74a.mongodb.net/project2', {
+    connection = await MongoClient.connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
